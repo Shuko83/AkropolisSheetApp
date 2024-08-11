@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:new_akropolis_sheets/enums/akropolis_colors.dart';
+import 'package:new_akropolis_sheets/widgets/color_widget.dart';
 
 void main() {
   runApp(const MyApp());
@@ -105,13 +107,11 @@ class _MyHomePageState extends State<MyHomePage> {
           // wireframe for each widget.
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
+            ColorWidget(color: Colors.blue),
+            ColorWidget(color: Colors.red),
+            ColorWidget(color: Colors.yellow),
+            ColorWidget(color: Colors.purple),
+            ColorWidget(color: Colors.green),
           ],
         ),
       ),
