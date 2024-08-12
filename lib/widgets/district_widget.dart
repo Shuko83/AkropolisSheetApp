@@ -4,17 +4,17 @@ import 'package:flutter/material.dart';
 class DistrictWidget extends StatefulWidget {
   const DistrictWidget({
     super.key,
-    required this.districtModel,
+    required this.districtModelProvider,
   });
 
-  final DistrictModel districtModel;
+  final DistrictModelProvider districtModelProvider;
 
   
   void onStarChanged(String str){
       var nbStar = int.tryParse(str);
       if(nbStar != null)
       {
-        districtModel.setNumberOfPlazas(nbStar);
+        districtModelProvider.numberOfPlazas= nbStar;
       }
   }
 
@@ -22,7 +22,7 @@ class DistrictWidget extends StatefulWidget {
       var districtValues = int.tryParse(str);
       if(districtValues != null)
       {
-        districtModel.setDistrictValues(districtValues);
+        districtModelProvider.districtValues =districtValues;
       }
   }
 
@@ -42,7 +42,7 @@ class _DistrictWidgetState extends State<DistrictWidget> {
         Row(
           children: [
             Icon(Icons.star,
-            color: widget.districtModel.color,
+            color: widget.districtModelProvider.color,
             ),
             SizedBox(
               width: 120,
@@ -54,12 +54,12 @@ class _DistrictWidgetState extends State<DistrictWidget> {
                 ),
                 onChanged:(value) => setState(() {
                   widget.onStarChanged(value);
-                  score = widget.districtModel.getVictoryPoints().toString();
+                  score = widget.districtModelProvider.victoryPoints.toString();
                 }),
               ),
             ),
             Icon(Icons.hexagon,
-            color: widget.districtModel.color,
+            color: widget.districtModelProvider.color,
             ),
             SizedBox(
               width: 120,
@@ -71,7 +71,7 @@ class _DistrictWidgetState extends State<DistrictWidget> {
                 ),
                 onChanged:(value) => setState(() {
                   widget.onDistrictValueChanged(value);
-                  score = widget.districtModel.getVictoryPoints().toString();
+                  score = widget.districtModelProvider.victoryPoints.toString();
                 }),
               ),
             ),

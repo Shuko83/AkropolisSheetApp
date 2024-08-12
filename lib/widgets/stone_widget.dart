@@ -34,12 +34,12 @@ class _StoneWidgetState extends State<StoneWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Row(
       children: [
         Icon(Icons.square,
         color: Colors.grey,
         ),
-                    SizedBox(
+        SizedBox(
               width: 120,
               height: 50,
               child: TextField(
