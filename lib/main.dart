@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:new_akropolis_sheets/models/district.dart';
 import 'package:new_akropolis_sheets/widgets/city_widget.dart';
 import 'package:new_akropolis_sheets/widgets/district_widget.dart';
+import 'package:new_akropolis_sheets/models/city.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -72,6 +74,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    //final CityModelProvider cityProvider = Provider.of<CityModelProvider>(context);
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //

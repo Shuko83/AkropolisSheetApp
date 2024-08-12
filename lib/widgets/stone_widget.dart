@@ -4,10 +4,10 @@ import 'package:new_akropolis_sheets/models/city.dart';
 class StoneWidget extends StatefulWidget {
   const StoneWidget({
     super.key,
-    required this.cityModel
+    required this.cityModelProvider
   });
 
-  final CityModel cityModel;
+  final CityModelProvider cityModelProvider;
 
 
   void onStonesChanged(String str)
@@ -15,7 +15,11 @@ class StoneWidget extends StatefulWidget {
     var stones = int.tryParse(str);
       if(stones != null)
       {
-        cityModel.setNumberofStones(stones);
+        cityModelProvider.numberOfStones = stones;
+      }
+      else
+      {
+        cityModelProvider.numberOfStones = 0;
       }
   }
   @override
@@ -45,7 +49,7 @@ class _StoneWidgetState extends State<StoneWidget> {
                 ),
                 onChanged:(value) => setState(() {
                   widget.onStonesChanged(value);
-                  stones = widget.cityModel.getNumberOfStones().toString();
+                  stones = widget.cityModelProvider.numberOfStones.toString();
                 }),
               ),
             ),
