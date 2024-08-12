@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:new_akropolis_sheets/enums/akropolis_colors.dart';
-import 'package:new_akropolis_sheets/widgets/color_widget.dart';
+import 'package:new_akropolis_sheets/models/district.dart';
+import 'package:new_akropolis_sheets/widgets/city_widget.dart';
+import 'package:new_akropolis_sheets/widgets/district_widget.dart';
 
 void main() {
   runApp(const MyApp());
@@ -58,7 +59,6 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
-
   void _incrementCounter() {
     setState(() {
       // This call to setState tells the Flutter framework that something has
@@ -91,7 +91,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
-        child: Column(
+        child: Row(
           // Column is also a layout widget. It takes a list of children and
           // arranges them vertically. By default, it sizes itself to fit its
           // children horizontally, and tries to be as tall as its parent.
@@ -107,11 +107,12 @@ class _MyHomePageState extends State<MyHomePage> {
           // wireframe for each widget.
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            ColorWidget(color: Colors.blue),
-            ColorWidget(color: Colors.red),
-            ColorWidget(color: Colors.yellow),
-            ColorWidget(color: Colors.purple),
-            ColorWidget(color: Colors.green),
+            CityWidget(player: 'player 1'),
+            Text(""),
+            Text(""),
+            Text(""),
+            Text(""),
+            CityWidget(player: 'player 2'),
           ],
         ),
       ),
