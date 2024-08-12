@@ -34,26 +34,32 @@ class _StoneWidgetState extends State<StoneWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Icon(Icons.square,
-        color: Colors.grey,
-        ),
-        SizedBox(
-              width: 120,
-              height: 50,
-              child: TextField(
-                keyboardType: TextInputType.number,
-                decoration:  InputDecoration(
-                  border : OutlineInputBorder(),
-                ),
-                onChanged:(value) => setState(() {
-                  widget.onStonesChanged(value);
-                  stones = widget.cityModelProvider.numberOfStones.toString();
-                }),
-              ),
+    return Card(
+      child: Container(
+        margin: EdgeInsets.all(9),
+        child: Row(
+          
+          children: [
+            Icon(Icons.square,
+            color: Colors.grey,
             ),
-      ],
+            SizedBox(
+                  width: 120,
+                  height: 50,
+                  child: TextField(
+                    keyboardType: TextInputType.number,
+                    decoration:  InputDecoration(
+                      border : OutlineInputBorder(),
+                    ),
+                    onChanged:(value) => setState(() {
+                      widget.onStonesChanged(value);
+                      stones = widget.cityModelProvider.numberOfStones.toString();
+                    }),
+                  ),
+                ),
+          ],
+        ),
+      ),
     );
   }
 }

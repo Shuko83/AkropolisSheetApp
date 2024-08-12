@@ -12,7 +12,7 @@ class CityModel {
     DistrictModel(color: Colors.red, starByPlaza: 2),
     DistrictModel(color: Colors.yellow, starByPlaza: 2),
     DistrictModel(color: Colors.purple, starByPlaza: 2),
-    DistrictModel(color: Colors.green, starByPlaza: 3),
+    DistrictModel(color: const Color.fromARGB(255, 30, 243, 59), starByPlaza: 3),
     ];
   int _numberOfStones = 0;
   int _totalScore = 0;

@@ -111,11 +111,6 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             CityWidget(player: 'player 1'),
-            Text(""),
-            Text(""),
-            Text(""),
-            Text(""),
-            CityWidget(player: 'player 2'),
           ],
         ),
       ),
