@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:new_akropolis_sheets/models/city.dart';
+import 'package:new_akropolis_sheets/widgets/common_widgets.dart';
 
 class StoneWidget extends StatefulWidget {
   const StoneWidget({
@@ -40,18 +41,14 @@ class _StoneWidgetState extends State<StoneWidget> {
         child: Row(
           
           children: [
-            Icon(Icons.square,
+            AkropolisIcon(icon: Icons.square,
             color: Colors.grey,
             ),
             SizedBox(
                   width: 120,
-                  height: 50,
-                  child: TextField(
-                    keyboardType: TextInputType.number,
-                    decoration:  InputDecoration(
-                      border : OutlineInputBorder(),
-                    ),
-                    onChanged:(value) => setState(() {
+                  height: 30,
+                  child: AkropolisTextInput(
+                    func:(value) => setState(() {
                       widget.onStonesChanged(value);
                       stones = widget.cityModelProvider.numberOfStones.toString();
                     }),

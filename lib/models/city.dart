@@ -2,11 +2,6 @@ import 'package:new_akropolis_sheets/models/district.dart';
 import 'package:flutter/material.dart';
 
 class CityModel {
-  /*DistrictModel barracks = DistrictModel(color: Colors.red, starByPlaza: 2);
-  DistrictModel houses = DistrictModel(color: Colors.blue, starByPlaza: 1);
-  DistrictModel markets = DistrictModel(color: Colors.yellow, starByPlaza: 2);
-  DistrictModel temples = DistrictModel(color: Colors.purple, starByPlaza: 2);
-  DistrictModel gardens = DistrictModel(color: Colors.green, starByPlaza: 3);*/
   List<DistrictModel> districts = DistrictCategory.values.map((category)=>DistrictModel(districtCategory: category)).toList();
 
   int _numberOfStones = 0;

@@ -1,5 +1,6 @@
 import 'package:new_akropolis_sheets/models/district.dart';
 import 'package:flutter/material.dart';
+import 'package:new_akropolis_sheets/widgets/common_widgets.dart';
 
 class DistrictWidget extends StatefulWidget {
   const DistrictWidget({
@@ -34,6 +35,10 @@ class _DistrictWidgetState extends State<DistrictWidget> {
 
   final TextEditingController starsEditingController = TextEditingController();
   var score = "" ;
+
+ var inputFieldWidth = 120.0;
+ var inputFieldHeight = 30.0;
+
   @override
   Widget build(BuildContext context) {
 
@@ -43,6 +48,7 @@ class _DistrictWidgetState extends State<DistrictWidget> {
       (widget.districtModelProvider.color.green * 0.9).toInt(),
       (widget.districtModelProvider.color.blue * 0.9).toInt(),
       );
+
     return Card(
       shadowColor: Colors.black,
       //surfaceTintColor: widget.districtModelProvider.color,
@@ -53,48 +59,33 @@ class _DistrictWidgetState extends State<DistrictWidget> {
           children: [
             Row(
               children: [
-                Icon(Icons.star_rounded,
-                color: widget.districtModelProvider.color,
-                shadows: [Shadow(color:Colors.black,offset: Offset(2,2), blurRadius: 2),
-                  ],       
+                AkropolisIcon(icon: Icons.star_rounded,
+                color:widget.districtModelProvider.color,      
                 ),
                 SizedBox(
-                  width: 120,
-                  height: 30,
-                  child: TextField(
-                    keyboardType: TextInputType.number,
-                    decoration:  InputDecoration(
-                      border : OutlineInputBorder(),
-                    ),
-                    onChanged:(value) => setState(() {
-                      widget.onStarChanged(value);
-                      score = widget.districtModelProvider.victoryPoints.toString();
-                    }),
-                  ),
+                  height: inputFieldHeight,
+                  width: inputFieldWidth,
+                  child: AkropolisTextInput(func : (value) => setState(() {
+                        widget.onStarChanged(value);
+                        score = widget.districtModelProvider.victoryPoints.toString();
+                      })),
                 ),
-                Icon(Icons.hexagon,
-                color: widget.districtModelProvider.color,
-                shadows: [Shadow(color:Colors.black,offset: Offset(2,2), blurRadius: 2)],
+                AkropolisIcon(icon: Icons.hexagon,
+                color:widget.districtModelProvider.color,
                 ),
                 SizedBox(
-                  width: 120,
-                  height: 30,
-                  child: TextField(
-                    keyboardType: TextInputType.number,
-                    decoration:  InputDecoration(
-                      border : OutlineInputBorder(),
-                    ),
-                    onChanged:(value) => setState(() {
+                  width: inputFieldWidth,
+                  height: inputFieldHeight,
+                  child: AkropolisTextInput(func: (value) => setState(() {
                       widget.onDistrictValueChanged(value);
-                      score = widget.districtModelProvider.victoryPoints.toString();
-                    }),
+                      score = widget.districtModelProvider.victoryPoints.toString();}),
                   ),
                 ),
               ],  
             ),
             Row(
               children: [
-                Text('='),
+                Text('=',),
                 Text(score.toString()),
               ],
             ),
