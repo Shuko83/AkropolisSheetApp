@@ -37,18 +37,16 @@ class _DistrictWidgetState extends State<DistrictWidget> {
   @override
   Widget build(BuildContext context) {
 
-     HSVColor cardColor = HSVColor.fromColor(widget.districtModelProvider.color);
-     //switch()
-     cardColor = cardColor.withSaturation(cardColor.saturation * 0.5);
-      //cardColor = cardColor.withHue(cardColor.hue + 15);
-
-        HSVColor iconColor = HSVColor.fromColor(widget.districtModelProvider.color);
-     //switch()
-     iconColor = iconColor.withHue(cardColor.hue + 15);
+     Color cardColor = Color.fromARGB(
+      widget.districtModelProvider.color.alpha,
+      (widget.districtModelProvider.color.red * 0.9).toInt(),
+      (widget.districtModelProvider.color.green * 0.9).toInt(),
+      (widget.districtModelProvider.color.blue * 0.9).toInt(),
+      );
     return Card(
       shadowColor: Colors.black,
-      surfaceTintColor: widget.districtModelProvider.color,
-      color: cardColor.toColor().withAlpha(170),
+      //surfaceTintColor: widget.districtModelProvider.color,
+      color: cardColor,
       child: Padding(
         padding: const EdgeInsets.only(top: 15, right: 15),
         child: Column(
@@ -56,8 +54,8 @@ class _DistrictWidgetState extends State<DistrictWidget> {
             Row(
               children: [
                 Icon(Icons.star_rounded,
-                color: iconColor.toColor(),
-                shadows: [Shadow(color:Colors.black,offset: Offset(2,2), blurRadius: 4),
+                color: widget.districtModelProvider.color,
+                shadows: [Shadow(color:Colors.black,offset: Offset(2,2), blurRadius: 2),
                   ],       
                 ),
                 SizedBox(
@@ -75,8 +73,8 @@ class _DistrictWidgetState extends State<DistrictWidget> {
                   ),
                 ),
                 Icon(Icons.hexagon,
-                color: iconColor.toColor(),
-                shadows: [Shadow(color:Colors.black,offset: Offset(2,2), blurRadius: 4)],
+                color: widget.districtModelProvider.color,
+                shadows: [Shadow(color:Colors.black,offset: Offset(2,2), blurRadius: 2)],
                 ),
                 SizedBox(
                   width: 120,

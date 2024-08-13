@@ -7,9 +7,9 @@ import 'package:provider/provider.dart';
 
 class CityWidget extends StatefulWidget{
   CityWidget({
-    required this.player,
+    required this.playerName,
   });
-  final String player;
+  final String playerName;
 
   @override
   State<CityWidget> createState() => _CityWidgetState();
@@ -38,7 +38,7 @@ class _CityWidgetState extends State<CityWidget> {
         padding: const EdgeInsets.all(9.0),
         child: Column(
           children: [
-                Text(widget.player),
+                Text(widget.playerName),
                 for(var provider in cityProvider.providers)
                     DistrictWidget(districtModelProvider: provider),
                 //FamilyColorWidget(familyColor: widget.scoreModel.yellowFamily ),

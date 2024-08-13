@@ -7,13 +7,8 @@ class CityModel {
   DistrictModel markets = DistrictModel(color: Colors.yellow, starByPlaza: 2);
   DistrictModel temples = DistrictModel(color: Colors.purple, starByPlaza: 2);
   DistrictModel gardens = DistrictModel(color: Colors.green, starByPlaza: 3);*/
-  List<DistrictModel> districts = [
-    DistrictModel(color: Colors.blue, starByPlaza: 1),
-    DistrictModel(color: Colors.red, starByPlaza: 2),
-    DistrictModel(color: Colors.yellow, starByPlaza: 2),
-    DistrictModel(color: Colors.purple, starByPlaza: 2),
-    DistrictModel(color: const Color.fromARGB(255, 30, 243, 59), starByPlaza: 3),
-    ];
+  List<DistrictModel> districts = DistrictCategory.values.map((category)=>DistrictModel(districtCategory: category)).toList();
+
   int _numberOfStones = 0;
   int _totalScore = 0;
 }
